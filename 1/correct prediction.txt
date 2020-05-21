@@ -1,0 +1,3 @@
+132 correct predictions out of 173 that equal 76.3
+129 correct predictions out of 173 that equal 74.57
+133 correct predictions out of 173 that equal 76.88
