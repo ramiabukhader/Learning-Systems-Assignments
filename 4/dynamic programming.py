@@ -3,7 +3,6 @@ import pandas
 import math
 
 
-
 def main():
 
     df = pandas.read_csv('city1.csv', header = None)
@@ -37,8 +36,6 @@ def main():
         min_nods = []
         _new_neighbor = []
         for _last in _last_neighbor:
-          
-
             min_nods = _last
             f_neighbor=[]
 
@@ -48,8 +45,7 @@ def main():
                     
                 elif i[1]==min_nods[0] :
                     f_neighbor.append(i[::len(i)-1])
-                    
-            
+               
             for _neig in f_neighbor:
               
                 for x in _nods:
