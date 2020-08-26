@@ -5,7 +5,6 @@ from sklearn import preprocessing
 
 df = pandas.read_csv('iris.csv', header = None)
 
-#inputs = preprocessing.normalize(inputs)
 #data normailization between 0-1
 df_c = df.copy()
 for col in df_c.columns:
@@ -18,7 +17,7 @@ outputs = df.iloc[:,-1].values.tolist()
 
 def main():
 
-    #_probably = np.array([], dtype=np.float64)
+    
 
     #I've made a function to findd the probability each input value in the graph.
     _probably = []

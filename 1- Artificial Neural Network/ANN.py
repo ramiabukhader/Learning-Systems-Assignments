@@ -8,10 +8,6 @@ df = pandas.read_csv('Book1.csv', header = None)
 rows = len(df) * 0.7
 tb_ver = rows + len(df) * .1
 
-#df_n = df
-#df = preprocessing.normalize(df)
-#for col in df.columns:
-   #df[col] = (df[col]-df[col].min())/(df[col].max()-df[col].min())
 
 #print(rows) those for the training sets only , input and output 70% of rows
 inputs = np.array(df.iloc[:int(rows),:-1].values.tolist())
@@ -20,7 +16,6 @@ outputs = np.array([[i] for i in outputs])
 
 inputs = preprocessing.normalize(inputs)
 outputs = preprocessing.normalize(outputs)
-#inputs = preprocessing.normalize(inputs)
 
 ver_input = np.array(df.iloc[int(rows):int(tb_ver),:-1].values.tolist())
 ver_outputs = df.iloc[int(rows):int(tb_ver),-1].values.tolist()
@@ -113,11 +108,7 @@ class NeuralNetwork:
                 self.feed_forward(True)
                 self.val_error_history.append(np.average(np.abs(self.error)))
                 print(F'ver error on {epochs} : ',np.average(np.abs(self.error)))
-                #if val_error >= np.average(np.abs(self.error)):
-                #    val_error = np.average(np.abs(self.error))
-                #    val_countToStope = 0
-                #else:
-                #    val_countToStope += 1
+               
             else:
                 # keep track of the error history over each epoch
                 self.error_history.append(np.average(np.abs(self.error)))
@@ -147,9 +138,9 @@ for i in range(len(test_inputs)):
         result = 0
     if result == test_outputs[i]:
         correct += 1
-#predect_error =  test_outputs - np.array(predect)
 
 print(f"{correct} correct predictions out of {total} that equal { round( correct/total*100, 2)}")
+
 #print("Erorr average for predictions", np.average(np.abs(predect_error)))
 #plot the error over the entire training duration
 #plt.figure(figsize=(15,5))
